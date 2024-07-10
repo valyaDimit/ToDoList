@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namepsace:ToDoList"
+             x:Class="ToDoList.MainPage">
+
+    <StackLayout Padding="10">
+        <Entry x:Name="taskEntry" Placeholder="Enter new task" />
+        <Button Text="Add Task" Clicked="OnAddTaskButtonClicked" />
+        <ListView x:Name="tasksListView" ItemSelected="OnTaskSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Name}" Detail="{Binding IsCompleted, Converter={StaticResource BoolToCompletedConverter}}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button Text="Delete Task" Clicked="OnDeleteTaskButtonClicked" />
+    </StackLayout>
+
+
+</ContentPage>
